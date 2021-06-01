@@ -1,0 +1,53 @@
+<div class="row">  
+    <div class="col-md-4 col-md-offset-4" style="margin-top: 50px; border: 1px solid rgb(100, 98, 98); padding: 30px;">  
+      <form class="form-horizontal" role="form" #empform="ngForm" (ngSubmit)=formSubmit(empform.value)>  
+        <strong>Angular Training</strong>
+        <div class="container">
+            <strong for="id">ID:</strong>
+            <input class="form-control"  type="text" name="id" [(ngModel)]='employee.id' #id='ngModel'>
+            <strong for="name">Name:</strong>
+            <!-- <strong *ngIf="errormessage!=null" style="color: red;" >{{errormessage}}</strong> -->
+            <input class="form-control" type="text" name="name" id="name" [(ngModel)]="employee.name" #name="ngModel" required minlength="3" maxlength="11"><br>
+            <strong *ngIf="name.errors?.required" style="color: red;">Name is required</strong><br>
+            <strong *ngIf="name.errors?.minlength" style="color: red;">Name must be atleast 3 characters</strong><br>
+            <!-- <div>name.invalid - {{name.invalid}}</div>
+
+            <div>name.touched - {{name.touched}}</div>
+
+            <div>name.dirty - {{name.dirty}}</div>
+
+            <div>name.errors.required - {{name.errors?.required}}</div>
+
+            <div>name.errors.minlength - {{name.errors?.minlength | json}}</div> -->
+            <strong for="salary">Salary</strong>
+            <input class="form-control" type="number" name="salary" id="" [(ngModel)]="employee.salary" #salary="ngModel" required><br>
+            <strong *ngIf="name.errors?.required" style="color: red;">Salary is required</strong><br>
+            <strong for="permanent">Is permanent or not?</strong><br>
+            <strong for="yes">Yes</strong>
+            <input class="form-check" id="yes" type="radio" name="permanent" value=true [(ngModel)]="employee.permanent" #permanent="ngModel" >
+            <strong for="no">No</strong>
+            <input class="form-check" type="radio" name="permanent" value=false [(ngModel)]="employee.permanent" #permanent="ngModel"><br>
+            <strong for="department">Department</strong>
+            <select class="form-control" name="department" id="department" [(ngModel)]=employee.department>
+                <option *ngFor="let dept of departments">{{dept['name']}}</option>
+            </select>
+            <input type="submit" class="btn btn-primary" value="Save" [disabled]="!empform.valid">
+        </div>
+      </form>
+    </div>  
+    <div class="block" style="margin-top: 50px; border: 1px solid rgb(100, 98, 98); padding: 30px;">
+    
+        <strong>Employee Model</strong><br>
+        
+        <pre>{{employee |json}}</pre>
+        
+    </div> 
+    <div class="block" style="margin-top: 50px; border: 1px solid rgb(100, 98, 98); padding: 30px;">
+    
+        <strong>Angular Generated Form Model</strong><br>
+        
+        <pre>{{empform.value | json}}</pre>
+        
+    </div>
+  </div>  
+  

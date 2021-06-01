@@ -1,0 +1,7 @@
+<div class="container-fluid">
+    <p>A simple button click Event</p>
+    <button (click)="subData()" [disabled]="increment.quantity<=0"><span>-</span></button>
+    <input type="number" name="quantity" [(ngModel)]='increment.quantity' #quantity="ngModel">
+    <button (click)="addData()"><span>+</span></button>
+    <p id="showData">{{increment.quantity}}</p>
+</div>

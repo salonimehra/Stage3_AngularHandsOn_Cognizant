@@ -1,0 +1,25 @@
+<strong>Employee with employee id: {{employee.id}}</strong>
+<div class="container-fluid">
+    <div class="row" style="border: 2px solid black; padding: 30px;margin-top: 50px; margin-left: 50px; margin-right: 50px;">
+        <strong>Employee Details</strong>
+        <p><strong>ID: </strong><span>{{employee.id}}</span></p>
+        <p><strong>Name: </strong><span>{{employee.name}}</span></p>
+        <p><strong>Salary: </strong><span>{{employee.salary}}</span></p>
+        <p><strong>Permanent: </strong><span *ngIf="employee.permanent">Yes</span><span *ngIf="!employee.permanent">No</span></p>
+        <p><strong>Department ID: </strong><span>{{employee.department.id}}</span></p>
+        <p><strong>Department Name: </strong><span>{{employee.department.name}}</span></p>
+        <strong>Skills:</strong>
+        <div class="container-fluid">
+            <table>
+                <tr>
+                    <th>Skill Id:</th>
+                    <th>Skill Name:</th>
+                </tr>
+                <tr *ngFor="let skill of employee.Skills">
+                    <td>{{skill.id}}</td>
+                    <td>{{skill.name}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
