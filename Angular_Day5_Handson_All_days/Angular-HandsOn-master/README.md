@@ -8,5 +8,3 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## It Contains All the HandsOn exercises Components in a single angular project(i.e. All the functionality is added incrementally)
 
-##The Angular App is also hosted on firebase hosting which can be viewed by opening the URL given below
-https://ryuzaki-c0ad3.web.app/
